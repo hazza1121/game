@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة منهج المصمم</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; padding: 20px; background: white; border-radius: 8px; }
+        .button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .button:hover { background-color: #0056b3; }
+        #feedback { margin-top: 20px; }
+        #nextStage { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>لعبة منهج المصمم</h1>
+        <div id="stage">
+            <h2>المرحلة 1: تحديد الحاجات</h2>
+            <p>اختر الحاجات المناسبة:</p>
+            <button class="button" onclick="nextStage('حاجة 1')">حاجة 1</button>
+            <button class="button" onclick="nextStage('حاجة 2')">حاجة 2</button>
+        </div>
+        <div id="nextStage">
+            <h2>المرحلة 2: صياغة الأهداف</h2>
+            <p>اختر الهدف المناسب:</p>
+            <button class="button" onclick="completeGame('هدف 1')">هدف 1</button>
+            <button class="button" onclick="completeGame('هدف 2')">هدف 2</button>
+        </div>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        function nextStage(chosenNeed) {
+            document.getElementById('feedback').innerText = `لقد اخترت: ${chosenNeed}. انتقل إلى المرحلة التالية!`;
+            document.getElementById('stage').style.display = 'none';
+            document.getElementById('nextStage').style.display = 'block';
+        }
+
+        function completeGame(chosenGoal) {
+            document.getElementById('feedback').innerText = `لقد اخترت: ${chosenGoal}. انتهت اللعبة! شكراً للعب!`;
+            document.getElementById('nextStage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
